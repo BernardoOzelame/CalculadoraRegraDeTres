@@ -10,49 +10,45 @@
 <body>
     <h1>Regra de Três Simples</h1>
     <?php
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $a = $_POST['a'];
-        $b = $_POST['b'];
-        $c = $_POST['c'];
-        $x = ($b * $c) / $a;
-        $xFormatado = number_format($x, 2, ',', '.');
-    }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $a = $_POST['a'];
+            $b = $_POST['b'];
+            $c = $_POST['c'];
+            $x = ($b * $c) / $a;
+            $xFormatado = number_format($x, 2, ',', '.');
+        }
     ?>
-    <div class="tudo">
-        <form action="#" method="post">
-            <div class="container">
-                <span>
-                    <input type="number" name="a" id="a" step="any" placeholder="Valor de A" required value="<?php echo $a; ?>">
-                </span>
-                <span class='estPara'>ESTÁ PARA</span>
-                <span>
-                    <input type="number" name="b" id="b" step="any" placeholder="Valor de B" required value="<?php echo $b; ?>">
-                </span>
-            </div>
+    <form action="#" method="post">
+        <div class="container">
+            <span>
+                <input type="number" name="a" id="a" step="any" placeholder="Valor de A" required value="<?php echo $a; ?>">
+            </span>
+            <span class='estaPara'>ESTÁ PARA</span>
+            <span>
+                <input type="number" name="b" id="b" step="any" placeholder="Valor de B" required value="<?php echo $b; ?>">
+            </span>
+        </div>
 
-            <div id='assComo'>ASSIM COMO</div>
+        <div id='assimComo'>ASSIM COMO</div>
 
-            <div class="container">
-                <span>
-                    <input type="number" name="c" id="c" step="any" placeholder="Valor de C" required value="<?php echo $c; ?>">
-                </span>
-                <span class='estPara'>ESTÁ PARA</span>
-                <span>
-                    <div id="x" class="x"><?php echo isset($xFormatado) ? $xFormatado : 'X'; ?></div>
-                </span>
-            </div>
+        <div class="container">
+            <span>
+                <input type="number" name="c" id="c" step="any" placeholder="Valor de C" required value="<?php echo $c; ?>">
+            </span>
+            <span class='estaPara'>ESTÁ PARA</span>
+            <span>
+                <div id="x" class="x"><?php echo isset($xFormatado) ? $xFormatado : 'X'; ?></div>
+            </span>
+        </div>
 
-            <div class='containerBtns'>
-                <input class="calcular" type="submit" value="CALCULAR">
-                <div id="resetContainer">
-                    <input type="reset" value="LIMPAR" id="reset" onclick="limparCampos(event)">
-                    <span id="resetText" onclick="limparCampos(event)">ou apenas R</span>
-                </div>
+        <div class='containerBtns'>
+            <input class="calcular" type="submit" value="CALCULAR">
+            <div id="resetContainer">
+                <input type="reset" value="LIMPAR" id="reset" onclick="limparCampos(event)">
+                <span id="resetText" onclick="limparCampos(event)">ou apenas R</span>
             </div>
-            
-            <div></div>
-        </form>
-    </div>
+        </div>
+    </form>
 
     <script>
         document.addEventListener('keydown', function (event) {
